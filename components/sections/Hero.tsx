@@ -26,7 +26,6 @@ const featureCards = [
 
 export default function Hero() {
     const sectionRef = useRef<HTMLElement | null>(null);
-    const orbitContainerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         if (!sectionRef.current) return;
@@ -119,7 +118,7 @@ export default function Hero() {
             <div className="absolute -right-[10%] top-[20%] h-[600px] w-[600px] rounded-full bg-[#C8D5D0]/50 blur-[120px]" />
 
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="grid items-start gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+                <div className="grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
 
                     {/* LEFT COLUMN: Typography & CTA */}
                     <div className="relative z-10 flex flex-col justify-center">
@@ -133,22 +132,30 @@ export default function Hero() {
 
                         <h1
                             data-hero-fade
-                            className="mt-8 font-[var(--font-display)] text-[clamp(4rem,7.5vw,7.5rem)] font-medium leading-[0.85] tracking-[-0.05em] text-[#181511]"
+                            className="mt-6 font-[var(--font-display)] text-[clamp(2.9rem,13vw,7.5rem)] font-medium leading-[0.9] tracking-[-0.05em] text-[#181511] sm:mt-8"
                         >
-                            PIXVEDA<br />
-                            builds<br />
-                            digital<br />
-                            marketing<br />
-                            systems<br />
-                            that turn<br />
-                            attention<br />
-                            into<br />
-                            revenue.
+                            <span className="block sm:hidden">
+                                PIXVEDA builds digital marketing systems that turn attention into revenue.
+                            </span>
+                            <span className="hidden sm:block lg:hidden">
+                                PIXVEDA builds digital marketing systems that turn attention into revenue.
+                            </span>
+                            <span className="hidden lg:block">
+                                PIXVEDA<br />
+                                builds<br />
+                                digital<br />
+                                marketing<br />
+                                systems<br />
+                                that turn<br />
+                                attention<br />
+                                into<br />
+                                revenue.
+                            </span>
                         </h1>
 
                         <p
                             data-hero-fade
-                            className="mt-8 max-w-lg text-base leading-relaxed text-[rgba(19,17,14,0.65)] sm:text-lg"
+                            className="mt-6 max-w-lg text-sm leading-7 text-[rgba(19,17,14,0.65)] sm:mt-8 sm:text-lg sm:leading-relaxed"
                         >
                             We help ambitious startups and modern brands create category-defining
                             visibility through strategy, performance media, funnel design, content
@@ -157,11 +164,11 @@ export default function Hero() {
 
                         <div
                             data-hero-fade
-                            className="mt-10 flex flex-wrap items-center gap-4"
+                            className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
                         >
                             <a
                                 href="#contact"
-                                className="relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-400 px-8 text-xs font-bold uppercase tracking-[0.15em] text-white transition-all duration-300 group hover:scale-[1.05] hover:shadow-[0_10px_40px_rgba(37,99,235,0.4)]"
+                                className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-400 px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition-all duration-300 hover:shadow-[0_10px_40px_rgba(37,99,235,0.35)] sm:h-14 sm:w-auto sm:px-8 sm:text-xs sm:hover:scale-[1.05]"
                             >
                                 <span className="relative z-10">Book a Growth Audit</span>
                                 <span className="absolute inset-0 overflow-hidden rounded-full">
@@ -170,7 +177,7 @@ export default function Hero() {
                             </a>
                             <a
                                 href="#services"
-                                className="inline-flex h-14 items-center justify-center rounded-full border border-[rgba(19,17,14,0.15)] bg-white px-8 text-xs font-bold uppercase tracking-[0.15em] text-[#181511] transition-all hover:scale-[1.02] hover:border-[rgba(19,17,14,0.3)] hover:shadow-sm"
+                                className="inline-flex h-12 w-full items-center justify-center rounded-full border border-[rgba(19,17,14,0.15)] bg-white px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-[#181511] transition-all hover:border-[rgba(19,17,14,0.3)] hover:shadow-sm sm:h-14 sm:w-auto sm:px-8 sm:text-xs sm:hover:scale-[1.02]"
                             >
                                 Explore Capabilities
                             </a>
@@ -178,12 +185,12 @@ export default function Hero() {
 
                         <div
                             data-hero-fade
-                            className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6"
+                            className="mt-10 grid grid-cols-1 gap-3 sm:mt-16 sm:grid-cols-3 sm:gap-6"
                         >
                             {metrics.map((metric) => (
                                 <div
                                     key={metric.label}
-                                    className="rounded-[1.5rem] border border-white/40 bg-white/50 p-6 shadow-sm backdrop-blur-md"
+                                    className="rounded-[1.35rem] border border-white/40 bg-white/50 p-5 shadow-sm backdrop-blur-md sm:rounded-[1.5rem] sm:p-6"
                                 >
                                     <p className="text-3xl font-medium tracking-[-0.04em] text-[#181511]">
                                         {metric.value}
@@ -194,10 +201,26 @@ export default function Hero() {
                                 </div>
                             ))}
                         </div>
+
+                        <div className="mt-8 grid gap-3 lg:hidden">
+                            {featureCards.map((item) => (
+                                <div
+                                    key={item.title}
+                                    className="rounded-[1.35rem] border border-white/50 bg-white/55 p-4 shadow-sm backdrop-blur-md"
+                                >
+                                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#1e6b5c]">
+                                        {item.title}
+                                    </p>
+                                    <p className="mt-2 text-sm leading-6 text-[rgba(19,17,14,0.68)]">
+                                        {item.copy}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     {/* RIGHT COLUMN: The Interactive 3D Card Collage */}
-                    <div ref={orbitContainerRef} className="relative mt-12 hidden min-h-[750px] w-full transform-style-3d lg:block">
+                    <div className="relative mt-12 hidden min-h-[750px] w-full transform-style-3d lg:block">
 
                         {/* 1. Base Card (Command Center) - Slowest Parallax */}
                         <div

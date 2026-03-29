@@ -25,15 +25,15 @@ const contactCards = [
 
 export default function Contact() {
     return (
-        <section id="contact" className="section-padding py-20 pb-24 sm:py-24 sm:pb-28">
+        <section id="contact" className="section-padding py-16 pb-24 sm:py-24 sm:pb-28">
             <div className="container-width mx-auto max-w-7xl">
-                <Reveal className="relative overflow-hidden rounded-[2.5rem] border border-[rgba(255,255,255,0.08)] bg-[#181511] p-8 text-[#f8f1e6] shadow-[0_40px_100px_rgba(24,21,17,0.3)] sm:p-12 lg:p-16">
+                <Reveal className="relative overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.08)] bg-[#181511] p-5 text-[#f8f1e6] shadow-[0_40px_100px_rgba(24,21,17,0.3)] sm:rounded-[2.5rem] sm:p-12 lg:p-16">
 
                     {/* Ambient Inner Glows for Depth */}
                     <div className="pointer-events-none absolute -right-[20%] -top-[20%] h-[600px] w-[600px] rounded-full bg-[#f6b645]/10 blur-[120px]" />
                     <div className="pointer-events-none absolute -bottom-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-[#f2a571]/10 blur-[100px]" />
 
-                    <div className="relative z-10 grid gap-16 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+                    <div className="relative z-10 grid gap-10 sm:gap-16 lg:grid-cols-[1fr_0.8fr] lg:items-center">
 
                         {/* Left Side: Copy & CTA */}
                         <div className="flex flex-col items-start">
@@ -44,27 +44,26 @@ export default function Contact() {
                                 </span>
                             </div>
 
-                            <h2 className="mt-8 max-w-3xl text-balance font-[var(--font-display)] text-4xl font-medium leading-[1.1] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+                            <h2 className="mt-6 max-w-3xl text-balance font-[var(--font-display)] text-3xl font-medium leading-[1.08] tracking-[-0.04em] sm:mt-8 sm:text-5xl lg:text-6xl">
                                 If your brand is ready to look sharper, convert better, and grow
                                 faster, PIXVEDA is ready to lead the move.
                             </h2>
 
-                            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/60 sm:text-lg">
+                            <p className="mt-5 max-w-xl text-sm leading-7 text-white/60 sm:mt-6 sm:text-lg">
                                 Reach out for launch strategy, marketing systems, brand
                                 positioning, high-conversion websites, and growth campaigns that
                                 actually feel premium. The goal is simple: make your company
                                 impossible to ignore.
                             </p>
 
-                            <div className="mt-10 flex flex-wrap items-center gap-4">
+                            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                                 <a
                                     href={`mailto:nityam1111@gmail.com?subject=Growth%20Audit%20Request%20-%20Pixveda&body=Hi%20Pixveda%20Team,%0A%0AI%20would%20like%20to%20book%20a%20growth%20audit.%0A%0AHere%20are%20my%20details:%0A-Name:%0A-Company:%0A-Website:%0A%0AThanks`}
-                                    className="inline-flex h-14 items-center justify-center rounded-full 
+                                    className="inline-flex h-12 w-full items-center justify-center rounded-full 
   bg-gradient-to-r from-blue-600 to-blue-400 px-8 
   text-xs font-bold uppercase tracking-[0.18em] text-white 
-  transition-all duration-300 hover:scale-[1.05] 
-  hover:shadow-[0_10px_40px_rgba(37,99,235,0.4)] 
-  overflow-hidden group"
+  transition-all duration-300 hover:shadow-[0_10px_40px_rgba(37,99,235,0.4)] 
+  overflow-hidden group sm:h-14 sm:w-auto sm:hover:scale-[1.05]"
                                 >
                                     <span className="relative z-10">Email PIXVEDA</span>
 
@@ -77,7 +76,7 @@ export default function Contact() {
                                 </a>
                                 <a
                                     href="#home"
-                                    className="inline-flex h-14 items-center justify-center rounded-full border border-white/15 bg-transparent px-8 text-xs font-bold uppercase tracking-[0.18em] text-[#f8f1e6] transition-all duration-300 hover:border-white/30 hover:bg-white/5"
+                                    className="inline-flex h-12 w-full items-center justify-center rounded-full border border-white/15 bg-transparent px-8 text-xs font-bold uppercase tracking-[0.18em] text-[#f8f1e6] transition-all duration-300 hover:border-white/30 hover:bg-white/5 sm:h-14 sm:w-auto"
                                 >
                                     Back to Top
                                 </a>
@@ -85,7 +84,7 @@ export default function Contact() {
                         </div>
 
                         {/* Right Side: Interactive Cards */}
-                        <div className="relative flex flex-col gap-4 rounded-[2rem] border border-white/10 bg-black/20 p-6 backdrop-blur-xl sm:p-8">
+                        <div className="relative flex flex-col gap-4 rounded-[1.6rem] border border-white/10 bg-black/20 p-4 backdrop-blur-xl sm:rounded-[2rem] sm:p-8">
                             <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#f2a571]">
                                 Direct Lines
                             </p>
