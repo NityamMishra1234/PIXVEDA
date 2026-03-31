@@ -1,33 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import Reveal from "@/components/animations/Reveal";
-
-const services = [
-  {
-    title: "Performance Marketing",
-    description:
-      "Campaign systems across Meta, Google, LinkedIn, and emerging channels built for scalable CAC efficiency.",
-    points: ["Media buying", "Creative iteration", "Attribution clarity"],
-  },
-  {
-    title: "Brand & Content Strategy",
-    description:
-      "Messaging frameworks and content engines that help startups sound category-leading instead of interchangeable.",
-    points: ["Brand narrative", "SEO content", "Thought leadership"],
-  },
-  {
-    title: "Revenue-Focused Websites",
-    description:
-      "Premium web design and landing page architecture tuned for conversions, clarity, and trust at enterprise level.",
-    points: ["CRO UX", "Fast frontends", "Offer clarity"],
-  },
-  {
-    title: "Marketing Automation",
-    description:
-      "Lifecycle systems that connect leads, nurture sequences, CRM workflows, and retention campaigns into one machine.",
-    points: ["Email flows", "Lead scoring", "CRM sync"],
-  },
-];
+import { services } from "@/lib/services";
 
 export default function Services() {
   return (
@@ -53,31 +28,49 @@ export default function Services() {
           {services.map((service) => (
             <Reveal
               key={service.title}
-              className="glass-panel rounded-[1.5rem] p-5 sm:rounded-[2rem] sm:p-8"
+              className="glass-panel rounded-[1.5rem] p-0 sm:rounded-[2rem]"
             >
-              <div className="flex h-full flex-col">
-                <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-[var(--foreground)] sm:text-2xl">
-                    {service.title}
-                  </h3>
-                  <span className="rounded-full bg-[rgba(59,130,246,0.14)] px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-[#93c5fd]">
-                    Enterprise
-                  </span>
-                </div>
-                <p className="mt-4 text-sm leading-7 text-white/72 sm:mt-5 sm:text-base">
-                  {service.description}
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8 sm:gap-3">
-                  {service.points.map((point) => (
-                    <span
-                      key={point}
-                      className="rounded-full border border-[rgba(246,182,69,0.14)] bg-white/5 px-3 py-2 text-xs font-semibold text-white/72 sm:px-4 sm:text-sm"
-                    >
-                      {point}
+              <Link
+                href={`/services/${service.slug}`}
+                className="group block h-full rounded-[1.5rem] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.025] sm:rounded-[2rem] sm:p-8"
+              >
+                <div className="flex h-full flex-col">
+                  <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
+                        {service.shortLabel}
+                      </p>
+                      <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-[var(--foreground)] sm:text-2xl">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <span className="rounded-full bg-[rgba(59,130,246,0.14)] px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-[#93c5fd]">
+                      Enterprise
                     </span>
-                  ))}
+                  </div>
+                  <p className="mt-4 text-sm leading-7 text-white/72 sm:mt-5 sm:text-base">
+                    {service.description}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8 sm:gap-3">
+                    {service.points.map((point) => (
+                      <span
+                        key={point}
+                        className="rounded-full border border-[rgba(246,182,69,0.14)] bg-white/5 px-3 py-2 text-xs font-semibold text-white/72 sm:px-4 sm:text-sm"
+                      >
+                        {point}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-8 flex items-center justify-between border-t border-white/8 pt-5">
+                    <span className="text-sm font-semibold text-[var(--foreground)]">
+                      Open service page
+                    </span>
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(59,130,246,0.2)] bg-[rgba(59,130,246,0.08)] text-[#93c5fd] transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </Reveal>
           ))}
         </div>

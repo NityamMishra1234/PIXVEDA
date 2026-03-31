@@ -1,6 +1,7 @@
 "use client";
 
 import Loader from "@/components/animations/Loader";
+import FloatingContactDock from "@/components/layout/FloatingContactDock";
 import useLoader from "../hooks/useLoader";
 
 export default function ClientLayout({
@@ -13,7 +14,12 @@ export default function ClientLayout({
     return (
         <>
             {loading && <Loader />}
-            {!loading && children}
+            {!loading && (
+                <>
+                    {children}
+                    <FloatingContactDock />
+                </>
+            )}
         </>
     );
 }

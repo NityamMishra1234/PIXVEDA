@@ -129,10 +129,10 @@ export default function Hero() {
         <section
             id="home"
             ref={sectionRef}
-            className="relative overflow-hidden bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] pb-16 pt-32 sm:pt-40 lg:pt-48 [perspective:1000px]"
+            className="relative overflow-hidden pb-16 pt-32 sm:pt-40 lg:pt-48 [perspective:1000px]"
         >
-            <div className="absolute -left-[10%] top-0 h-[500px] w-[500px] rounded-full bg-[#f6b645]/18 blur-[120px]" />
-            <div className="absolute -right-[10%] top-[20%] h-[600px] w-[600px] rounded-full bg-[#2563eb]/18 blur-[140px]" />
+            <div className="absolute -left-[10%] top-0 h-[500px] w-[500px] rounded-full bg-[#f6b645]/14 blur-[120px]" />
+            <div className="absolute -right-[10%] top-[20%] h-[600px] w-[600px] rounded-full bg-[#2563eb]/14 blur-[140px]" />
 
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">

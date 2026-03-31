@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #070b12;
-  --background-alt: #0d121c;
+  --background: #05080e;
+  --background-alt: #090e16;
   --foreground: #f7f2e8;
-  --surface: rgba(14, 20, 31, 0.76);
-  --surface-strong: rgba(20, 27, 40, 0.9);
+  --surface: rgba(10, 15, 24, 0.8);
+  --surface-strong: rgba(15, 21, 32, 0.92);
   --surface-soft: rgba(255, 255, 255, 0.04);
   --border: rgba(246, 182, 69, 0.14);
   --brand: #f6b645;
@@ -34,9 +34,9 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(246, 182, 69, 0.18), transparent 26%),
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 28%),
-    linear-gradient(180deg, #06090f 0%, #0a111a 52%, #05080d 100%);
+    radial-gradient(circle at top left, rgba(246, 182, 69, 0.14), transparent 24%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.14), transparent 26%),
+    linear-gradient(180deg, #04070c 0%, #070c14 52%, #03060b 100%);
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
   text-rendering: optimizeLegibility;
@@ -68,17 +68,7 @@ a {
 }
 
 .page-shell::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 72px 72px;
-  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 85%);
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 85%);
-  z-index: -1;
+  content: none;
 }
 
 .glass-panel {
