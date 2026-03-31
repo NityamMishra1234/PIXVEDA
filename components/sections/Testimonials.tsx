@@ -30,7 +30,7 @@ export default function Testimonials() {
         <Reveal>
           <div className="max-w-3xl">
             <span className="eyebrow">What Partners Feel</span>
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[#181511] sm:text-5xl">
+            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[var(--foreground)] sm:text-5xl">
               Trusted by teams that need marketing to feel premium and perform seriously.
             </h2>
           </div>
@@ -42,14 +42,14 @@ export default function Testimonials() {
               key={item.name}
               className="glass-panel rounded-[2rem] p-7 sm:p-8"
             >
-              <p className="text-base leading-8 text-[rgba(19,17,14,0.78)]">
+              <p className="text-base leading-8 text-white/78">
                 &ldquo;{item.quote}&rdquo;
               </p>
-              <div className="mt-8 border-t border-[rgba(19,17,14,0.08)] pt-5">
-                <p className="text-lg font-semibold tracking-[-0.03em] text-[#181511]">
+              <div className="mt-8 border-t border-white/8 pt-5">
+                <p className="text-lg font-semibold tracking-[-0.03em] text-[var(--foreground)]">
                   {item.name}
                 </p>
-                <p className="mt-1 text-sm text-[rgba(19,17,14,0.62)]">
+                <p className="mt-1 text-sm text-[#93c5fd]">
                   {item.role}
                 </p>
               </div>

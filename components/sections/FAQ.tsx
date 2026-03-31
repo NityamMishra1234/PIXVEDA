@@ -26,7 +26,7 @@ export default function FAQ() {
       <div className="container-width grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <Reveal>
           <span className="eyebrow">FAQ</span>
-          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[#181511] sm:text-5xl">
+          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[var(--foreground)] sm:text-5xl">
             Questions founders usually ask before we start.
           </h2>
         </Reveal>
@@ -37,10 +37,10 @@ export default function FAQ() {
               key={faq.question}
               className="glass-panel rounded-[1.75rem] p-6 sm:p-7"
             >
-              <h3 className="text-xl font-semibold tracking-[-0.03em] text-[#181511]">
+              <h3 className="text-xl font-semibold tracking-[-0.03em] text-[var(--foreground)]">
                 {faq.question}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-[rgba(19,17,14,0.72)]">
+              <p className="mt-4 text-sm leading-7 text-white/72">
                 {faq.answer}
               </p>
             </Reveal>

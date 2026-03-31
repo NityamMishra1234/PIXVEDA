@@ -27,11 +27,11 @@ export default function Contact() {
     return (
         <section id="contact" className="section-padding py-16 pb-24 sm:py-24 sm:pb-28">
             <div className="container-width mx-auto max-w-7xl">
-                <Reveal className="relative overflow-hidden rounded-[2rem] border border-[rgba(255,255,255,0.08)] bg-[#181511] p-5 text-[#f8f1e6] shadow-[0_40px_100px_rgba(24,21,17,0.3)] sm:rounded-[2.5rem] sm:p-12 lg:p-16">
+                <Reveal className="relative overflow-hidden rounded-[2rem] border border-[rgba(246,182,69,0.14)] bg-[rgba(7,11,18,0.94)] p-5 text-[#f8f1e6] shadow-[0_40px_100px_rgba(2,6,23,0.38)] sm:rounded-[2.5rem] sm:p-12 lg:p-16">
 
                     {/* Ambient Inner Glows for Depth */}
                     <div className="pointer-events-none absolute -right-[20%] -top-[20%] h-[600px] w-[600px] rounded-full bg-[#f6b645]/10 blur-[120px]" />
-                    <div className="pointer-events-none absolute -bottom-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-[#f2a571]/10 blur-[100px]" />
+                    <div className="pointer-events-none absolute -bottom-[20%] -left-[10%] h-[500px] w-[500px] rounded-full bg-[#2563eb]/12 blur-[100px]" />
 
                     <div className="relative z-10 grid gap-10 sm:gap-16 lg:grid-cols-[1fr_0.8fr] lg:items-center">
 
@@ -60,7 +60,7 @@ export default function Contact() {
                                 <a
                                     href={`mailto:nityam1111@gmail.com?subject=Growth%20Audit%20Request%20-%20Pixveda&body=Hi%20Pixveda%20Team,%0A%0AI%20would%20like%20to%20book%20a%20growth%20audit.%0A%0AHere%20are%20my%20details:%0A-Name:%0A-Company:%0A-Website:%0A%0AThanks`}
                                     className="inline-flex h-12 w-full items-center justify-center rounded-full 
-  bg-gradient-to-r from-blue-600 to-blue-400 px-8 
+  bg-gradient-to-r from-[var(--accent-deep)] to-[var(--accent)] px-8 
   text-xs font-bold uppercase tracking-[0.18em] text-white 
   transition-all duration-300 hover:shadow-[0_10px_40px_rgba(37,99,235,0.4)] 
   overflow-hidden group sm:h-14 sm:w-auto sm:hover:scale-[1.05]"
@@ -85,7 +85,7 @@ export default function Contact() {
 
                         {/* Right Side: Interactive Cards */}
                         <div className="relative flex flex-col gap-4 rounded-[1.6rem] border border-white/10 bg-black/20 p-4 backdrop-blur-xl sm:rounded-[2rem] sm:p-8">
-                            <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#f2a571]">
+                            <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
                                 Direct Lines
                             </p>
 
@@ -123,7 +123,7 @@ export default function Contact() {
 
                             {/* Response Promise Footer inside the card container */}
                             <div className="mt-4 rounded-[1.25rem] border border-white/5 bg-transparent p-5">
-                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8a2f14]">
+                                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand)]">
                                     Response Promise
                                 </p>
                                 <p className="mt-2 text-sm leading-relaxed text-white/50">
