@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5efe4;
-  --foreground: #13110e;
-  --surface: rgba(255, 250, 241, 0.72);
-  --surface-strong: rgba(255, 248, 235, 0.92);
-  --border: rgba(19, 17, 14, 0.08);
-  --brand: #d95f27;
-  --brand-deep: #8a2f14;
-  --accent: #1e6b5c;
-  --ink-soft: rgba(19, 17, 14, 0.72);
-  --shadow: 0 20px 80px rgba(74, 40, 16, 0.12);
+  --background: #05080e;
+  --background-alt: #090e16;
+  --foreground: #f7f2e8;
+  --surface: rgba(10, 15, 24, 0.8);
+  --surface-strong: rgba(15, 21, 32, 0.92);
+  --surface-soft: rgba(255, 255, 255, 0.04);
+  --border: rgba(246, 182, 69, 0.14);
+  --brand: #f6b645;
+  --brand-deep: #c98a16;
+  --accent: #3b82f6;
+  --accent-deep: #1d4ed8;
+  --ink-soft: rgba(247, 242, 232, 0.72);
+  --shadow: 0 28px 90px rgba(2, 6, 23, 0.42);
 }
 
 @theme inline {
@@ -31,9 +34,9 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(217, 95, 39, 0.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(30, 107, 92, 0.14), transparent 26%),
-    linear-gradient(180deg, #fcf7ef 0%, #f5efe4 52%, #f7f1e6 100%);
+    radial-gradient(circle at top left, rgba(246, 182, 69, 0.14), transparent 24%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.14), transparent 26%),
+    linear-gradient(180deg, #04070c 0%, #070c14 52%, #03060b 100%);
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
   text-rendering: optimizeLegibility;
@@ -55,8 +58,8 @@ a {
 }
 
 ::selection {
-  background: rgba(217, 95, 39, 0.18);
-  color: #0f0c09;
+  background: rgba(246, 182, 69, 0.28);
+  color: #04070d;
 }
 
 .page-shell {
@@ -65,17 +68,7 @@ a {
 }
 
 .page-shell::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(19, 17, 14, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(19, 17, 14, 0.02) 1px, transparent 1px);
-  background-size: 72px 72px;
-  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 85%);
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 85%);
-  z-index: -1;
+  content: none;
 }
 
 .glass-panel {
@@ -101,12 +94,15 @@ a {
   gap: 0.75rem;
   border-radius: 999px;
   padding: 0.45rem 0.95rem;
-  border: 1px solid rgba(19, 17, 14, 0.09);
-  background: rgba(255, 250, 241, 0.75);
+  border: 1px solid rgba(246, 182, 69, 0.18);
+  background: rgba(255, 255, 255, 0.04);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--foreground);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 
 .eyebrow::before {
@@ -114,7 +110,7 @@ a {
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--brand), #f2a571);
+  background: linear-gradient(135deg, var(--brand), var(--accent));
 }
 
 @media (min-width: 768px) {

@@ -24,14 +24,14 @@ export default function Results() {
   return (
     <section className="section-padding py-20 sm:py-24">
       <div className="container-width grid gap-6 lg:grid-cols-[1fr_1.1fr]">
-        <Reveal className="rounded-[2.2rem] border border-[rgba(19,17,14,0.08)] bg-[#f6b645] p-8 text-[#181511] shadow-[0_24px_70px_rgba(217,95,39,0.15)] sm:p-10">
+        <Reveal className="rounded-[2.2rem] border border-[rgba(246,182,69,0.18)] bg-[linear-gradient(135deg,rgba(246,182,69,0.98),rgba(202,138,22,0.94))] p-8 text-[#070b12] shadow-[0_24px_70px_rgba(246,182,69,0.22)] sm:p-10">
           <span className="text-xs font-bold uppercase tracking-[0.22em]">
             Proof of Thinking
           </span>
           <h2 className="mt-6 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
             Enterprise-level polish means nothing if it does not move the numbers.
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-8 text-[rgba(24,21,17,0.8)]">
+          <p className="mt-6 max-w-xl text-base leading-8 text-[rgba(7,11,18,0.8)]">
             PIXVEDA is built for outcomes. We care about visibility, yes, but only
             if it becomes trust, pipeline, and demand. Good marketing should feel
             premium and perform like a machine.
@@ -46,14 +46,14 @@ export default function Results() {
             >
               <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <p className="text-5xl font-semibold tracking-[-0.05em] text-[#181511]">
+                  <p className="text-5xl font-semibold tracking-[-0.05em] text-[var(--foreground)]">
                     {item.stat}
                   </p>
-                  <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-[#181511]">
+                  <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-[var(--foreground)]">
                     {item.title}
                   </h3>
                 </div>
-                <p className="max-w-md text-sm leading-7 text-[rgba(19,17,14,0.72)]">
+                <p className="max-w-md text-sm leading-7 text-white/72">
                   {item.copy}
                 </p>
               </div>

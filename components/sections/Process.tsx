@@ -32,7 +32,7 @@ export default function Process() {
         <Reveal>
           <div className="max-w-3xl">
             <span className="eyebrow">How We Work</span>
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[#181511] sm:text-5xl">
+            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-[var(--foreground)] sm:text-5xl">
               A sharper process for teams that want growth without guesswork.
             </h2>
           </div>
@@ -44,13 +44,13 @@ export default function Process() {
               key={step.title}
               className="glass-panel rounded-[1.8rem] p-6"
             >
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#8a2f14]">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#93c5fd]">
                 Step 0{index + 1}
               </p>
-              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-[#181511]">
+              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-[var(--foreground)]">
                 {step.title}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-[rgba(19,17,14,0.72)]">
+              <p className="mt-4 text-sm leading-7 text-white/72">
                 {step.description}
               </p>
             </Reveal>

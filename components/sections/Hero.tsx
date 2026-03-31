@@ -31,7 +31,6 @@ export default function Hero() {
         if (!sectionRef.current) return;
 
         const ctx = gsap.context(() => {
-            // 1. Initial Fade In (Left Side)
             gsap.fromTo(
                 "[data-hero-fade]",
                 { opacity: 0, y: 40 },
@@ -44,7 +43,26 @@ export default function Hero() {
                 }
             );
 
-            // 2. The Pop-In for the Cards
+            gsap.fromTo(
+                "[data-hero-line]",
+                { scaleX: 0, transformOrigin: "left center", opacity: 0 },
+                {
+                    scaleX: 1,
+                    opacity: 1,
+                    duration: 1,
+                    delay: 0.45,
+                    ease: "power3.out",
+                }
+            );
+
+            gsap.to("[data-cta-glow]", {
+                boxShadow: "0 0 0 1px rgba(59,130,246,0.28), 0 16px 46px rgba(37,99,235,0.35)",
+                yoyo: true,
+                repeat: -1,
+                duration: 1.8,
+                ease: "sine.inOut",
+            });
+
             gsap.fromTo(
                 ".orbit-card",
                 { y: 80, scale: 0.85, opacity: 0, rotationZ: () => Math.random() * 10 - 5 },
@@ -111,55 +129,43 @@ export default function Hero() {
         <section
             id="home"
             ref={sectionRef}
-            className="relative overflow-hidden bg-[#F6F3ED] bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:64px_64px] pb-16 pt-32 sm:pt-40 lg:pt-48 [perspective:1000px]"
+            className="relative overflow-hidden pb-16 pt-32 sm:pt-40 lg:pt-48 [perspective:1000px]"
         >
-            {/* Soft Ambient Glows */}
-            <div className="absolute -left-[10%] top-0 h-[500px] w-[500px] rounded-full bg-[#E5B69E]/50 blur-[120px]" />
-            <div className="absolute -right-[10%] top-[20%] h-[600px] w-[600px] rounded-full bg-[#C8D5D0]/50 blur-[120px]" />
+            <div className="absolute -left-[10%] top-0 h-[500px] w-[500px] rounded-full bg-[#f6b645]/14 blur-[120px]" />
+            <div className="absolute -right-[10%] top-[20%] h-[600px] w-[600px] rounded-full bg-[#2563eb]/14 blur-[140px]" />
 
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
 
-                    {/* LEFT COLUMN: Typography & CTA */}
                     <div className="relative z-10 flex flex-col justify-center">
-
-                        <div data-hero-fade className="flex w-fit items-center gap-2 rounded-full border border-[rgba(19,17,14,0.1)] bg-white/40 px-4 py-1.5 backdrop-blur-md">
-                            <span className="h-2 w-2 rounded-full bg-[#D95F27]" />
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#181511]">
+                        <div data-hero-fade className="flex w-fit items-center gap-2 rounded-full border border-[rgba(246,182,69,0.18)] bg-white/5 px-4 py-1.5 backdrop-blur-md">
+                            <span className="h-2 w-2 rounded-full bg-[var(--brand)]" />
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--foreground)]">
                                 Enterprise Digital Growth Architecture
                             </span>
                         </div>
 
                         <h1
                             data-hero-fade
-                            className="mt-6 font-[var(--font-display)] text-[clamp(2.9rem,13vw,7.5rem)] font-medium leading-[0.9] tracking-[-0.05em] text-[#181511] sm:mt-8"
+                            className="mt-6 max-w-4xl font-[var(--font-display)] text-[clamp(2.6rem,7vw,5.4rem)] font-medium leading-[0.96] tracking-[-0.045em] text-[var(--foreground)] sm:mt-8"
                         >
-                            <span className="block sm:hidden">
-                                PIXVEDA builds digital marketing systems that turn attention into revenue.
-                            </span>
-                            <span className="hidden sm:block lg:hidden">
-                                PIXVEDA builds digital marketing systems that turn attention into revenue.
-                            </span>
-                            <span className="hidden lg:block">
-                                PIXVEDA<br />
-                                builds<br />
-                                digital<br />
-                                marketing<br />
-                                systems<br />
-                                that turn<br />
-                                attention<br />
-                                into<br />
-                                revenue.
-                            </span>
+                            Enterprise digital marketing
+                            <span className="block text-[var(--brand)]">built to make premium brands</span>
+                            <span className="block">impossible to ignore.</span>
                         </h1>
+
+                        <div
+                            data-hero-line
+                            className="mt-6 h-px w-28 bg-gradient-to-r from-[var(--brand)] via-[var(--accent)] to-transparent sm:mt-7"
+                        />
 
                         <p
                             data-hero-fade
-                            className="mt-6 max-w-lg text-sm leading-7 text-[rgba(19,17,14,0.65)] sm:mt-8 sm:text-lg sm:leading-relaxed"
+                            className="mt-6 max-w-2xl text-sm leading-7 text-white/72 sm:text-lg sm:leading-relaxed"
                         >
-                            We help ambitious startups and modern brands create category-defining
-                            visibility through strategy, performance media, funnel design, content
-                            ecosystems, and premium web experiences that convert.
+                            PIXVEDA combines positioning, paid media, conversion-focused websites,
+                            and growth systems into one enterprise-grade engine, so your brand looks
+                            sharper, sells faster, and scales with authority.
                         </p>
 
                         <div
@@ -168,20 +174,28 @@ export default function Hero() {
                         >
                             <a
                                 href="#contact"
-                                className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-400 px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition-all duration-300 hover:shadow-[0_10px_40px_rgba(37,99,235,0.35)] sm:h-14 sm:w-auto sm:px-8 sm:text-xs sm:hover:scale-[1.05]"
+                                data-cta-glow
+                                className="group relative inline-flex h-12 w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-[var(--accent-deep)] via-[var(--accent)] to-[#60a5fa] px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition-all duration-300 sm:h-14 sm:w-auto sm:px-8 sm:text-xs sm:hover:scale-[1.05]"
                             >
-                                <span className="relative z-10">Book a Growth Audit</span>
+                                <span className="relative z-10">Book an Enterprise Audit</span>
                                 <span className="absolute inset-0 overflow-hidden rounded-full">
                                     <span className="absolute -left-full top-0 h-full w-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                                 </span>
                             </a>
                             <a
                                 href="#services"
-                                className="inline-flex h-12 w-full items-center justify-center rounded-full border border-[rgba(19,17,14,0.15)] bg-white px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-[#181511] transition-all hover:border-[rgba(19,17,14,0.3)] hover:shadow-sm sm:h-14 sm:w-auto sm:px-8 sm:text-xs sm:hover:scale-[1.02]"
+                                className="inline-flex h-12 w-full items-center justify-center rounded-full border border-[rgba(246,182,69,0.18)] bg-white/5 px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--foreground)] transition-all hover:border-[rgba(246,182,69,0.34)] hover:bg-white/7 hover:shadow-sm sm:h-14 sm:w-auto sm:px-8 sm:text-xs sm:hover:scale-[1.02]"
                             >
-                                Explore Capabilities
+                                View Growth Systems
                             </a>
                         </div>
+
+                        <p
+                            data-hero-fade
+                            className="mt-4 text-xs uppercase tracking-[0.2em] text-white/48 sm:text-[11px]"
+                        >
+                            Founder-led strategy. Premium execution. Blue-chip presentation.
+                        </p>
 
                         <div
                             data-hero-fade
@@ -190,12 +204,12 @@ export default function Hero() {
                             {metrics.map((metric) => (
                                 <div
                                     key={metric.label}
-                                    className="rounded-[1.35rem] border border-white/40 bg-white/50 p-5 shadow-sm backdrop-blur-md sm:rounded-[1.5rem] sm:p-6"
+                                    className="rounded-[1.35rem] border border-[rgba(246,182,69,0.12)] bg-[rgba(255,255,255,0.04)] p-5 shadow-[0_20px_50px_rgba(2,6,23,0.18)] backdrop-blur-md sm:rounded-[1.5rem] sm:p-6"
                                 >
-                                    <p className="text-3xl font-medium tracking-[-0.04em] text-[#181511]">
+                                    <p className="text-3xl font-medium tracking-[-0.04em] text-[var(--foreground)]">
                                         {metric.value}
                                     </p>
-                                    <p className="mt-2 text-xs leading-relaxed text-[rgba(19,17,14,0.6)]">
+                                    <p className="mt-2 text-xs leading-relaxed text-white/62">
                                         {metric.label}
                                     </p>
                                 </div>
@@ -206,12 +220,12 @@ export default function Hero() {
                             {featureCards.map((item) => (
                                 <div
                                     key={item.title}
-                                    className="rounded-[1.35rem] border border-white/50 bg-white/55 p-4 shadow-sm backdrop-blur-md"
+                                    className="rounded-[1.35rem] border border-[rgba(246,182,69,0.14)] bg-[rgba(255,255,255,0.05)] p-4 shadow-sm backdrop-blur-md"
                                 >
-                                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#1e6b5c]">
+                                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--brand)]">
                                         {item.title}
                                     </p>
-                                    <p className="mt-2 text-sm leading-6 text-[rgba(19,17,14,0.68)]">
+                                    <p className="mt-2 text-sm leading-6 text-white/68">
                                         {item.copy}
                                     </p>
                                 </div>
@@ -219,24 +233,21 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* RIGHT COLUMN: The Interactive 3D Card Collage */}
                     <div className="relative mt-12 hidden min-h-[750px] w-full transform-style-3d lg:block">
-
-                        {/* 1. Base Card (Command Center) - Slowest Parallax */}
                         <div
-                            className="orbit-card absolute right-4 top-0 z-10 w-[420px] rounded-[2rem] border border-white/80 bg-white/70 p-8 shadow-[0_30px_60px_rgba(0,0,0,0.05)] backdrop-blur-xl"
+                            className="orbit-card absolute right-4 top-0 z-10 w-[420px] rounded-[2rem] border border-[rgba(246,182,69,0.16)] bg-[rgba(11,17,26,0.82)] p-8 shadow-[0_30px_60px_rgba(2,6,23,0.32)] backdrop-blur-xl"
                             data-depth="0.4"
                         >
-                            <div className="flex items-center justify-between border-b border-[rgba(19,17,14,0.06)] pb-6">
+                            <div className="flex items-center justify-between border-b border-white/8 pb-6">
                                 <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8a2f14]">
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand)]">
                                         Command Center
                                     </p>
-                                    <h2 className="mt-2 text-2xl font-medium tracking-[-0.03em] text-[#181511]">
+                                    <h2 className="mt-2 text-2xl font-medium tracking-[-0.03em] text-[var(--foreground)]">
                                         Full-funnel growth engine
                                     </h2>
                                 </div>
-                                <div className="rounded-full border border-[#D95F27]/30 bg-[#D95F27]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#D95F27]">
+                                <div className="rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/15 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#93c5fd]">
                                     Live
                                 </div>
                             </div>
@@ -244,10 +255,10 @@ export default function Hero() {
                             <div className="mt-6 flex flex-col gap-5">
                                 {featureCards.map((item) => (
                                     <div key={item.title} className="group cursor-pointer">
-                                        <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#1e6b5c] transition-colors group-hover:text-[#181511]">
+                                        <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#93c5fd] transition-colors group-hover:text-[var(--brand)]">
                                             {item.title}
                                         </p>
-                                        <p className="mt-1.5 text-sm leading-relaxed text-[rgba(19,17,14,0.6)]">
+                                        <p className="mt-1.5 text-sm leading-relaxed text-white/62">
                                             {item.copy}
                                         </p>
                                     </div>
@@ -255,12 +266,11 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        {/* 2. Black Card (Positioning) - Medium Parallax */}
                         <div
-                            className="orbit-card absolute -left-12 top-[30%] z-30 w-[300px] rounded-[1.5rem] border border-white/10 bg-[#181511] p-6 text-[#f8f1e6] shadow-[0_40px_80px_rgba(24,21,17,0.35)]"
+                            className="orbit-card absolute -left-12 top-[30%] z-30 w-[300px] rounded-[1.5rem] border border-[rgba(246,182,69,0.16)] bg-[#070b12] p-6 text-[#f8f1e6] shadow-[0_40px_80px_rgba(2,6,23,0.42)]"
                             data-depth="0.9"
                         >
-                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D95F27]">
+                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand)]">
                                 Positioning
                             </p>
                             <p className="mt-3 text-xl font-medium leading-snug tracking-[-0.03em]">
@@ -268,23 +278,21 @@ export default function Hero() {
                             </p>
                         </div>
 
-                        {/* 3. White Floating Card (Founder Ready) - Fastest Parallax (Floating higher) */}
                         <div
-                            className="orbit-card absolute -right-8 top-[15%] z-40 w-[240px] rounded-[1.5rem] border border-white bg-white/90 p-6 shadow-[0_30px_60px_rgba(0,0,0,0.12)] backdrop-blur-md"
+                            className="orbit-card absolute -right-8 top-[15%] z-40 w-[240px] rounded-[1.5rem] border border-[rgba(59,130,246,0.2)] bg-[rgba(23,35,56,0.88)] p-6 shadow-[0_30px_60px_rgba(2,6,23,0.28)] backdrop-blur-md"
                             data-depth="1.4"
                         >
-                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8a2f14]">
+                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
                                 Founder Ready
                             </p>
-                            <p className="mt-3 text-sm leading-relaxed text-[rgba(19,17,14,0.65)]">
+                            <p className="mt-3 text-sm leading-relaxed text-white/70">
                                 Premium presence, persuasive message, and clear digital execution
                                 from the first impression onward.
                             </p>
                         </div>
 
-                        {/* 4. Yellow Card (Signal) - Medium Parallax */}
                         <div
-                            className="orbit-card absolute bottom-16 right-12 z-20 w-[260px] rounded-[1.5rem] border border-[#F5B544]/50 bg-[#F5B544] p-6 text-[#181511] shadow-[0_40px_80px_rgba(245,181,68,0.4)]"
+                            className="orbit-card absolute bottom-16 right-12 z-20 w-[260px] rounded-[1.5rem] border border-[#F5B544]/50 bg-[#F5B544] p-6 text-[#070b12] shadow-[0_40px_80px_rgba(245,181,68,0.32)]"
                             data-depth="0.7"
                         >
                             <p className="text-[10px] font-bold uppercase tracking-[0.2em]">
