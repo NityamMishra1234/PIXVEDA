@@ -77,15 +77,28 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => handleNavigate("home")}
-            className="flex flex-col text-left focus:outline-none"
+            className="focus:outline-none"
             aria-label="Go to PIXVEDA homepage"
           >
-            <span className="block font-[var(--font-display)] text-[1.15rem] font-semibold leading-none tracking-[0.22em] text-[var(--foreground)] sm:text-xl">
-              PIXVEDA
-            </span>
-            <span className="hidden text-[11px] font-bold uppercase tracking-[0.18em] text-white/55 sm:block sm:pt-1">
-              Digital Marketing Enterprise
-            </span>
+            <div className="flex items-center gap-3">
+              {/* Logo */}
+              <img
+                src="/pixvedaLogo.png"
+                alt="PIXVEDA"
+                className="h-8 w-8 object-contain shrink-0"
+              />
+
+              {/* Company Name & Tagline */}
+              <div className="flex flex-col items-start text-left leading-tight">
+                <span className="font-[var(--font-display)] text-[1.15rem] font-semibold leading-none tracking-[0.22em] text-[var(--foreground)] sm:text-xl">
+                  PIXVEDA
+                </span>
+
+                <span className="hidden pt-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white/55 sm:block">
+                  Digital Marketing Enterprise
+                </span>
+              </div>
+            </div>
           </button>
 
           <div className="hidden items-center gap-1 md:flex">
