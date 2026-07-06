@@ -6,8 +6,8 @@ import Reveal from "@/components/animations/Reveal";
 const directContacts = [
   {
     label: "Email",
-    value: "nityam1111@gmail.com",
-    href: "mailto:nityam1111@gmail.com",
+    value: "pixveda1@gmail.com",
+    href: "mailto:pixveda1@gmail.com",
     tone: "text-[var(--brand)]",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
@@ -18,8 +18,8 @@ const directContacts = [
   },
   {
     label: "Phone",
-    value: "+91 99058 05143",
-    href: "tel:+919905805143",
+    value: "+91 9115161704",
+    href: "tel:+919115161704",
     tone: "text-[#93c5fd]",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
@@ -34,7 +34,7 @@ const directContacts = [
   {
     label: "WhatsApp",
     value: "Chat instantly",
-    href: "https://wa.me/919905805143",
+    href: "https://wa.me/919115161704",
     tone: "text-[#60d669]",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
