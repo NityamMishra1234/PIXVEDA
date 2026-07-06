@@ -73,31 +73,21 @@ export default function Navbar() {
             : "border-transparent bg-transparent"
         )}
       >
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-0">
           <button
             type="button"
             onClick={() => handleNavigate("home")}
             className="focus:outline-none"
             aria-label="Go to PIXVEDA homepage"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               {/* Logo */}
               <img
-                src="/pixvedaLogo.png"
+                src="/Pixveda .png"
                 alt="PIXVEDA"
-                className="h-8 w-8 object-contain shrink-0"
+                className="h-10 w-44 shrink-0"
               />
 
-              {/* Company Name & Tagline */}
-              <div className="flex flex-col items-start text-left leading-tight">
-                <span className="font-[var(--font-display)] text-[1.15rem] font-semibold leading-none tracking-[0.22em] text-[var(--foreground)] sm:text-xl">
-                  PIXVEDA
-                </span>
-
-                <span className="hidden pt-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white/55 sm:block">
-                  Digital Marketing Enterprise
-                </span>
-              </div>
             </div>
           </button>
 
