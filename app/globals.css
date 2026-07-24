@@ -4,6 +4,8 @@
   --background: #05080e;
   --background-alt: #090e16;
   --foreground: #f7f2e8;
+  --font-body: "Manrope", "Segoe UI", Arial, sans-serif;
+  --font-display: "Syne", "Segoe UI", Arial, sans-serif;
   --surface: rgba(10, 15, 24, 0.8);
   --surface-strong: rgba(15, 21, 32, 0.92);
   --surface-soft: rgba(255, 255, 255, 0.04);
@@ -18,7 +20,17 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-surface-soft: var(--surface-soft);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-ink-soft: var(--ink-soft);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
