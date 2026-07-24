@@ -14,7 +14,7 @@ const fadeUp = {
   show: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
   }),
 };
 
@@ -27,7 +27,7 @@ const TAGS = ["Reels & Shorts", "YouTube Videos", "Ads & Promos", "Corporate Vid
 function AnimatedHeadline() {
   const lines = ["Raw footage in.", "A video people", "watch till the end."];
   const container = { hidden: {}, show: { transition: { staggerChildren: 0.06, delayChildren: 0.15 } } };
-  const word = { hidden: { y: "110%" }, show: { y: "0%", transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } } };
+  const word = { hidden: { y: "110%" }, show: { y: "0%", transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const } } };
 
   return (
     <motion.h1
@@ -65,7 +65,7 @@ function LiveEditHUD() {
       { left: "2%" },
       { left: "96%", duration: 5.5, ease: "power1.inOut", repeat: -1, yoyo: true }
     );
-    return () => tween.kill();
+    return () => { tween.kill(); };
   }, [reduceMotion]);
 
   const bars = Array.from({ length: 34 });
@@ -74,7 +74,7 @@ function LiveEditHUD() {
     <motion.div
       initial={{ opacity: 0, y: 24, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
       className="glass-panel w-full max-w-md rounded-2xl p-5"
     >
       <div className="mb-4 flex items-center justify-between">
@@ -433,7 +433,9 @@ function ClientMarquee() {
   useEffect(() => {
     if (reduceMotion || !trackRef.current) return;
     const tween = gsap.to(trackRef.current, { xPercent: -50, duration: 22, ease: "none", repeat: -1 });
-    return () => tween.kill();
+    return () => {
+      tween.kill();
+    };
   }, [reduceMotion]);
 
   const loopList = [...CLIENTS, ...CLIENTS];
