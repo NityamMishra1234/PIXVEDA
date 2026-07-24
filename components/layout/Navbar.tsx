@@ -9,7 +9,7 @@ import { services } from "@/lib/services";
 const navItems = [
   { name: "Home", id: "home" },
   { name: "About", id: "about" },
-  { name: "Contact", id: "contact" },
+  { name: "Contact", id: "/contact" },
 ];
 
 export default function Navbar() {
@@ -50,16 +50,25 @@ export default function Navbar() {
     closeTimerRef.current = window.setTimeout(() => setServicesOpen(false), 120);
   };
 
-  const handleNavigate = (id: string) => {
+  const handleNavigate = (target: string) => {
     setMenuOpen(false);
     setServicesOpen(false);
 
-    if (pathname === "/") {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Route navigation
+    if (target.startsWith("/")) {
+      router.push(target);
       return;
     }
 
-    router.push(`/#${id}`);
+    // Single-page section navigation
+    if (pathname === "/") {
+      document
+        .getElementById(target)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
+    router.push(`/#${target}`);
   };
 
   return (
@@ -69,7 +78,7 @@ export default function Navbar() {
           "container-width mx-auto border px-5 py-3 transition-all duration-300 sm:px-6 sm:py-3.5",
           menuOpen ? "rounded-[2rem]" : "rounded-full",
           scrolled || menuOpen || servicesOpen
-            ? "border-[rgba(246,182,69,0.14)] bg-[rgba(3,6,11,0.96)] shadow-[0_22px_70px_rgba(2,6,23,0.58)] backdrop-blur-md"
+            ? "border-transparent bg-transparent shadow-[0_22px_70px_rgba(2,6,23,0.58)] backdrop-blur-md"
             : "border-transparent bg-transparent"
         )}
       >
@@ -207,7 +216,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <button
               type="button"
-              onClick={() => handleNavigate("contact")}
+              onClick={() => handleNavigate("/contact")}
               className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[var(--accent-deep)] to-[var(--accent)] px-6 py-2.5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(59,130,246,0.35)]"
             >
               Let&apos;s Talk
@@ -285,7 +294,7 @@ export default function Navbar() {
             </button>
             <button
               type="button"
-              onClick={() => handleNavigate("contact")}
+              onClick={() => handleNavigate("/contact")}
               className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-semibold text-[var(--foreground)] transition hover:bg-white/6"
             >
               <span>Contact</span>
@@ -293,7 +302,7 @@ export default function Navbar() {
             </button>
             <button
               type="button"
-              onClick={() => handleNavigate("contact")}
+              onClick={() => handleNavigate("/contact")}
               className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-[var(--accent-deep)] to-[var(--accent)] px-4 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white transition-transform active:scale-[0.98]"
             >
               Book a Call

@@ -93,7 +93,7 @@ export default function Hero() {
             // min-h-screen alone jumps on mobile as the browser chrome
             // shows/hides; min-h-[100dvh] locks to the actual visible
             // viewport so the hero height stays put while scrolling.
-            className="relative isolate flex min-h-screen min-h-[100dvh] items-center overflow-hidden bg-black pb-14 pt-28 sm:pt-32"
+            className="relative isolate flex min-h-screen min-h-[100dvh] items-center sm:px-30  overflow-hidden bg-black pb-14 pt-28 sm:pt-32"
         >
             {/* Video background */}
             <div className="absolute inset-0 -z-20">
@@ -113,7 +113,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/15" />
             </div>
 
-            <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 lg:mt-15 mt-5">
+            <div className="container container-width relative z-10 mx-auto lg:mt-15 mt-5">
                 <div className="flex flex-col items-start text-left [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]">
                     <div
                         data-hero-badge

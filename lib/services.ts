@@ -51,6 +51,26 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "video-editing",
+    title: "Video Editing",
+    shortLabel: "Video",
+    description:
+      "High-conviction video editing for reels, ads, YouTube content, and branded stories that keep viewers watching.",
+    summary:
+      "We turn raw footage into polished, high-retention videos with sharp pacing, motion graphics, captions, and color that feel premium on every platform.",
+    points: ["Reels & Shorts", "YouTube editing", "Motion graphics"],
+    deliverables: [
+      "Story-first edit structure and pacing",
+      "Color grading, sound design, and captions",
+      "Platform-ready exports for social and web",
+    ],
+    outcomes: [
+      "Higher completion rates and watch time",
+      "Sharper brand presentation across video channels",
+      "Faster content publishing without sacrificing quality",
+    ],
+  },
+  {
     slug: "web-development",
     title: "Web Development",
     shortLabel: "Web Dev",
@@ -91,9 +111,9 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "cro-landing-pages",
-    title: "CRO & Landing Pages",
-    shortLabel: "CRO",
+    slug: "Graphic-design",
+    title: "Designs that make your brand",
+    shortLabel: "Graphics",
     description:
       "Sharper page structures, testing plans, and conversion UX designed to move more visitors into qualified action.",
     summary:
@@ -108,26 +128,6 @@ export const services: Service[] = [
       "Higher visitor-to-lead conversion rates",
       "Clearer page journeys for buyers",
       "Faster learning loops from structured testing",
-    ],
-  },
-  {
-    slug: "marketing-automation",
-    title: "Marketing Automation",
-    shortLabel: "Automation",
-    description:
-      "Lifecycle systems that connect leads, nurture sequences, CRM workflows, and retention campaigns into one machine.",
-    summary:
-      "We connect your acquisition engine to the systems behind it, so leads are scored, followed up, and nurtured without valuable demand leaking out after the click.",
-    points: ["Email flows", "Lead scoring", "CRM sync"],
-    deliverables: [
-      "Lifecycle journey mapping and automation design",
-      "CRM and lead-routing workflow setup",
-      "Email nurture sequences and reporting logic",
-    ],
-    outcomes: [
-      "Faster response to new demand",
-      "Cleaner handoff between marketing and sales",
-      "More revenue captured from existing traffic",
     ],
   },
 ];
