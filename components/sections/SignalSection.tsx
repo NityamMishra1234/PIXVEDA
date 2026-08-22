@@ -125,7 +125,7 @@ function Card({ data }: { data: CardData }) {
                 } as React.CSSProperties
             }
             whileHover={{
-                y: -4,
+                y: 0,
                 borderColor: accentHex,
                 backgroundColor: "var(--surface-strong)",
                 transition: { duration: 0.25 },

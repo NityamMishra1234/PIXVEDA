@@ -385,7 +385,7 @@ export default function GraphicDesignPage() {
 
                     <Link
                         href="/contact"
-                        className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 rounded-full bg-[var(--foreground)] text-[var(--background)] font-bold text-sm uppercase tracking-widest transition-all hover:scale-105 hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] overflow-hidden"
+                        className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 rounded-full bg-transparent text-black font-bold text-sm uppercase tracking-widest transition-all hover:scale-105 hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] overflow-hidden"
                     >
                         <span className="relative z-10 flex items-center gap-2">
                             Get a Free Quote <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

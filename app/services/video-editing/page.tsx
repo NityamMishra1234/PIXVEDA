@@ -339,12 +339,12 @@ function Channels() {
 /* ------------------------------------------------------------------ */
 
 const PROJECTS = [
-  { title: "Weekend Market Reel", tag: "Reel · 28s", thumb: "/portfolio/reel-market.jpg", preview: "/portfolio/reel-market-preview.mp4" },
-  { title: "Founder Interview", tag: "YouTube · 9 min", thumb: "/portfolio/interview.jpg", preview: "/portfolio/interview-preview.mp4" },
-  { title: "App Launch Ad", tag: "Meta Ad · 15s", thumb: "/portfolio/app-launch.jpg", preview: "/portfolio/app-launch-preview.mp4" },
-  { title: "Factory Walkthrough", tag: "Corporate · 3 min", thumb: "/portfolio/factory.jpg", preview: "/portfolio/factory-preview.mp4" },
-  { title: "Product Unboxing", tag: "Shorts · 34s", thumb: "/portfolio/unboxing.jpg", preview: "/portfolio/unboxing-preview.mp4" },
-  { title: "Conference Highlight", tag: "Event · 2 min", thumb: "/portfolio/conference.jpg", preview: "/portfolio/conference-preview.mp4" },
+  { title: "Weekend Market Reel", tag: "Reel · 13s", preview: "https://res.cloudinary.com/vakim7xc/video/upload/v1787432655/pixvedaVideoOne.mp4" },
+  { title: "Founder Interview", tag: "Reel · 15s", preview: "https://res.cloudinary.com/vakim7xc/video/upload/v1787433601/foundersInterview.mp4" },
+  { title: "Product Shocase", tag: "Meta Ad · 15s", preview: "https://res.cloudinary.com/vakim7xc/video/upload/v1787434018/reelsOne.mp4" },
+  { title: "Media house", tag: "Corporate · 10s", preview: "https://res.cloudinary.com/vakim7xc/video/upload/v1787434141/MediaHouse.mp4" },
+  { title: "Car wash shop", tag: "Shorts · 11s", preview: "https://res.cloudinary.com/vakim7xc/video/upload/v1787434259/Steam_Wash.mp4" },
+  { title: "All cars", tag: "Reel", preview: "https://res.cloudinary.com/vakim7xc/video/upload/v1787434821/allCars.mp4" },
 ];
 
 const CLIENTS = ["Marigold Foods", "Nimbus Wear", "Kavya Interiors", "Bright Path Clinics", "Solstice Realty", "Verve Fitness", "Coral Bay Hotels", "Aster Analytics"];
@@ -397,31 +397,54 @@ function BeforeAfterSlider() {
 function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.play().catch((error) => {
+      console.warn("Autoplay failed:", error);
+    });
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5 }}
-      onHoverStart={() => videoRef.current?.play().catch(() => { })}
-      onHoverEnd={() => {
-        if (videoRef.current) {
-          videoRef.current.pause();
-          videoRef.current.currentTime = 0;
-        }
-      }}
       className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-border"
     >
-      <div className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 group-hover:opacity-0" style={{ backgroundImage: `url(${project.thumb})`, backgroundColor: "#0d1420" }} />
-      <video ref={videoRef} muted loop playsInline preload="none" className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      {/* Video */}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 h-full w-full object-cover"
+      >
         <source src={project.preview} type="video/mp4" />
       </video>
+
+      {/* Dark gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/10 to-transparent" />
+
+      {/* Project information */}
       <div className="absolute inset-x-0 bottom-0 p-4">
-        <h3 className="text-sm font-semibold text-foreground">{project.title}</h3>
-        <span className="mt-1 block font-mono text-xs text-brand">{project.tag}</span>
+        <h3 className="text-sm font-semibold text-foreground">
+          {project.title}
+        </h3>
+
+        <span className="mt-1 block font-mono text-xs text-brand">
+          {project.tag}
+        </span>
       </div>
-      <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-xs text-foreground opacity-0 transition-opacity group-hover:opacity-100">▶</div>
+
+      {/* Play indicator */}
+      <div className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-xs text-foreground">
+        ▶
+      </div>
     </motion.div>
   );
 }
