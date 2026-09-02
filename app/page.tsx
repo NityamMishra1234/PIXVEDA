@@ -7,12 +7,14 @@ import Results from "@/components/sections/Results";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contect";
+import SignalSection from "@/components/sections/SignalSection";
 
 export default function Home() {
   return (
     <main className="page-shell">
       <Navbar />
       <Hero />
+      <SignalSection />
       <Services />
       <Process />
       <About />

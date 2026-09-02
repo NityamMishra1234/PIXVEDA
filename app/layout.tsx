@@ -1,19 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Manrope, Syne } from "next/font/google";
 import ClientLayout from "@/components/layout/ClientLayout";
-
-const bodyFont = Manrope({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const displayFont = Syne({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["500", "600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pixveda.in"),
@@ -158,7 +145,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={`${bodyFont.variable} ${displayFont.variable}`}>
+      <body>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

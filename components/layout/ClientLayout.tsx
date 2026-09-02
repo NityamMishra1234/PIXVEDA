@@ -14,14 +14,11 @@ export default function ClientLayout({
 
     return (
         <>
+            {children}
+            <Footer />
+            <FloatingContactDock />
+
             {loading && <Loader />}
-            {!loading && (
-                <>
-                    {children}
-                    <Footer />
-                    <FloatingContactDock />
-                </>
-            )}
         </>
     );
 }
